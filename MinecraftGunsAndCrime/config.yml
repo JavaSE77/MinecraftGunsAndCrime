@@ -1,0 +1,40 @@
+drugDealerName: 'homeless bum'
+Crack:
+  DrugItem: 'BONE_MEAL'
+  DrugDisplayName: '&fCRACK'
+  DrugLore:
+    - 'Crack is bad for you'
+  ParaphernaliaItem: STICK
+  ParaphernaliaDisplayName: '&cCRACK PIPE'
+  ParaphernaliaLore:
+    - 'Right click me to smoke crack'
+#These should be potion effects. Separate ints with comma, first int is time in ticks, second int is strength 
+  DrugEffects:
+    - 'FAST_DIGGING,6000,0'
+    - 'CONFUSION,200,3'
+    - 'GLOWING,200,2'
+    - 'INCREASE_DAMAGE,6000,0'
+#Should be a value between 0 and 1
+  AddictionChance: .5
+  WithdrawlEffects:
+    - 'SLOW_DIGGING,6000,0'
+    - 'SLOW,6000,0'
+    - 'HUNGER,6000,0'
+  Addicts:
+    - 'JavaSE'
+  #this section handles the villager trading
+  MaxTrades: 16
+  CostOfDrugs: 8
+  CostOfDrugsForAddicts: 32
+  CostOfParaphernalia: 24
+HolyTexts:
+  ItemName: 'Holy bible'
+  Author: 'God himself'
+  BookLore:
+    - 'This book may'
+    - 'cure addiction'
+  BookPages:
+    - 'And God said, LET THERE BE CRACK'
+    - 'And you smoked it'
+    - 'Now you are addicted to crack'
+  

@@ -1,0 +1,12 @@
+main: com.shadowlandsmc.gunsandcrime.Main
+name: GunsAndCrime
+description: Guns and Drugs. What could go wrong?
+author: JavaSE
+version: 1.0.0
+api-version: 1.17
+commands:
+  drugs:
+    description: distribute drugs. gensandcrime.drugs.*
+permissions:
+  gensandcrime.drugs.give:
+    default: op
