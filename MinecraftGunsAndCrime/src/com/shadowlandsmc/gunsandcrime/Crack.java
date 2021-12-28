@@ -177,9 +177,9 @@ public class Crack implements Drugs {
 
 
 	@Override
-	public int costOfDrugsForAddicts() {
-		int CostOfDrugsForAddicts = plugin.getConfig().getInt("Crack.CostOfDrugsForAddicts");
-		return CostOfDrugsForAddicts;
+	public int costIncrease() {
+		int CostIncrease = plugin.getConfig().getInt("Crack.CostIncrease");
+		return CostIncrease;
 	}
 
 

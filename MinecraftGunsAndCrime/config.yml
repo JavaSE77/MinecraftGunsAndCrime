@@ -1,4 +1,4 @@
-drugDealerName: 'homeless bum'
+drugDealerName: 'Gang Member'
 Crack:
   DrugItem: 'BONE_MEAL'
   DrugDisplayName: '&fCRACK'
@@ -25,9 +25,10 @@ Crack:
   #this section handles the villager trading
   MaxTrades: 16
   CostOfDrugs: 8
-  CostOfDrugsForAddicts: 32
+  CostIncrease: 2
   CostOfParaphernalia: 24
 HolyTexts:
+  ItemCost: 64
   ItemName: 'Holy bible'
   Author: 'God himself'
   BookLore:

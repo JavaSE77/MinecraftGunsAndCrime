@@ -22,7 +22,7 @@ public interface Drugs {
 	//get the cost of drugs for players before they become addicted to crack
 	public int costOfDrugs();
 	//get the cost of drugs for people who are already addicted to the drugs
-	public int costOfDrugsForAddicts();
+	public int costIncrease();
 	//get the cost of the paraphernalia for the drugs
 	public int costOfParaphernalia();
 	

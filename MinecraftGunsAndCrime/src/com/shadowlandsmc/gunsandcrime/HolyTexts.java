@@ -70,5 +70,10 @@ public class HolyTexts {
 		return false;
 	}
 	
+	public int getCost( ) {
+		int cost = plugin.getConfig().getInt("HolyTexts.ItemCost");
+		return cost;
+	}
+	
 	
 }
