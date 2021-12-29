@@ -21,8 +21,11 @@ public class DayChangeEvent {
 
 		    	//get all the crack addicts, and if there aren't any, return
     			List<String> crackAddicts = plugin.getConfig().getStringList("Crack.Addicts");
-    			if(crackAddicts == null) return;
+		    	//get all the cookie addicts, and if there aren't any, return
+    			List<String> cookieAddicts = plugin.getConfig().getStringList("ChristmasCookies.Addicts");
+    			if(crackAddicts == null && cookieAddicts == null) return;
     			Crack crack = new Crack(plugin);
+    			ChristmasCookies cookies = new ChristmasCookies(plugin);
 
 		    	for (Player player : plugin.getServer().getOnlinePlayers() ) {
 		    		
@@ -30,6 +33,9 @@ public class DayChangeEvent {
 
 		    			if(crackAddicts.contains(player.getName())) {
 		    				crack.withdrawl(player);
+		    			}
+		    			if(cookieAddicts.contains(player.getName())) {
+		    				cookies.withdrawl(player);
 		    			}
 
 		    		}

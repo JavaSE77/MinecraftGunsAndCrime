@@ -15,13 +15,13 @@ import org.bukkit.potion.PotionEffectType;
 
 import net.md_5.bungee.api.ChatColor;
 
-public class Crack implements Drugs {
+public class ChristmasCookies implements Drugs {
 
 	private Plugin plugin;
-	private ItemStack crack = new ItemStack(Material.BONE_MEAL,1);
-	private ItemStack crackPipe = new ItemStack(Material.STICK,1);
+	private ItemStack drugs = new ItemStack(Material.COOKIE,1);
+	private ItemStack paraphernalia = new ItemStack(Material.MILK_BUCKET,1);
 	
-	public Crack(Plugin plugin) {
+	public ChristmasCookies(Plugin plugin) {
 	this.plugin	= plugin;	
 	generateDrugs();
 	}
@@ -29,29 +29,27 @@ public class Crack implements Drugs {
 	
 	private void generateDrugs() {
 		
-		String DrugItem = plugin.getConfig().getString("Crack.DrugItem");
-		String DrugDisplayName = plugin.getConfig().getString("Crack.DrugDisplayName").replaceAll("&", "§");
-		List<String> DrugLore = (List<String>) plugin.getConfig().getStringList("Crack.DrugLore");
+		String DrugItem = plugin.getConfig().getString("ChristmasCookies.DrugItem");
+		String DrugDisplayName = plugin.getConfig().getString("ChristmasCookies.DrugDisplayName").replaceAll("&", "§");
+		List<String> DrugLore = (List<String>) plugin.getConfig().getStringList("ChristmasCookies.DrugLore");
 		
-		String ParaphernaliaItem = plugin.getConfig().getString("Crack.ParaphernaliaItem");
-		String ParaphernaliaDisplayName = plugin.getConfig().getString("Crack.ParaphernaliaDisplayName").replaceAll("&", "§");
-		List<String> ParaphernaliaLore = (List<String>) plugin.getConfig().getStringList("Crack.ParaphernaliaLore");
+		String ParaphernaliaItem = plugin.getConfig().getString("ChristmasCookies.ParaphernaliaItem");
+		String ParaphernaliaDisplayName = plugin.getConfig().getString("ChristmasCookies.ParaphernaliaDisplayName").replaceAll("&", "§");
+		List<String> ParaphernaliaLore = (List<String>) plugin.getConfig().getStringList("ChristmasCookies.ParaphernaliaLore");
 		
 		//Generate Crack
-		this.crack.setType(Material.getMaterial(DrugItem));
-		ItemMeta meta = this.crack.getItemMeta();
+		this.drugs.setType(Material.getMaterial(DrugItem));
+		ItemMeta meta = this.drugs.getItemMeta();
 		meta.setDisplayName(DrugDisplayName);
 		meta.setLore(DrugLore);
-		meta.setCustomModelData(1);
-		this.crack.setItemMeta(meta);
+		this.drugs.setItemMeta(meta);
 		
 		//Generate Crack Pipe
-		this.crackPipe.setType(Material.getMaterial(ParaphernaliaItem));
-		meta = this.crackPipe.getItemMeta();
+		this.paraphernalia.setType(Material.getMaterial(ParaphernaliaItem));
+		meta = this.paraphernalia.getItemMeta();
 		meta.setDisplayName(ParaphernaliaDisplayName);
 		meta.setLore(ParaphernaliaLore);
-		meta.setCustomModelData(1);
-		this.crackPipe.setItemMeta(meta);
+		this.paraphernalia.setItemMeta(meta);
 		
 	}
 	
@@ -59,13 +57,13 @@ public class Crack implements Drugs {
 	
 	@Override
 	public ItemStack getDrugs() {
-		return this.crack;
+		return this.drugs;
 	}
 
 	@Override
 	public ItemStack getParaphernalia() {
 		// TODO Auto-generated method stub
-		return this.crackPipe;
+		return this.paraphernalia;
 	}
 	
 	
@@ -74,7 +72,7 @@ public class Crack implements Drugs {
 		
 		boolean inWithdrawl = false;
 		//Give the player the withdrawl effects of the crack
-		List<String> withdrawEffects = plugin.getConfig().getStringList("Crack.WithdrawlEffects");
+		List<String> withdrawEffects = plugin.getConfig().getStringList("ChristmasCookies.WithdrawlEffects");
 		//If the player is in withdraw, remove the effects.
 		for(int i = 0; i < withdrawEffects.size(); i++) {
 			
@@ -92,7 +90,7 @@ public class Crack implements Drugs {
 		}
 		
 		//Give the player the effects of the crack
-		List<String> list = plugin.getConfig().getStringList("Crack.DrugEffects");
+		List<String> list = plugin.getConfig().getStringList("ChristmasCookies.DrugEffects");
 		
 		for(int i = 0; i < list.size(); i++) {
 			
@@ -104,7 +102,7 @@ public class Crack implements Drugs {
 		
 	    Random random = new Random();
 	    int random_int = random.nextInt(100);
-		double prob = plugin.getConfig().getDouble("Crack.AddictionChance") * 100;
+		double prob = plugin.getConfig().getDouble("ChristmasCookies.AddictionChance") * 100;
 
 		//then you become addicted to the cracks
 		if(prob >= random_int) {
@@ -117,13 +115,13 @@ public class Crack implements Drugs {
 	public void addiction(Player player) {
 		
 		//Get the list of all crack addicts
-		List<String> list = plugin.getConfig().getStringList("Crack.Addicts");
+		List<String> list = plugin.getConfig().getStringList("ChristmasCookies.Addicts");
 		
 		//check to see if our player is an addict
 		if(!list.contains(player.getName())) {
-			player.sendMessage(ChatColor.RED + "You are addicted to crack! You must smoke crack every day, or suffer withdrawl.");
+			player.sendMessage(ChatColor.RED + "You are addicted to Christmas Cookies! You must eat Christmas Cookies every day, or suffer withdrawl.");
 			list.add(player.getName());
-			plugin.getConfig().set("Crack.Addicts", list);
+			plugin.getConfig().set("ChristmasCookies.Addicts", list);
 			plugin.saveConfig();
 		}
 		
@@ -133,13 +131,13 @@ public class Crack implements Drugs {
 	public void rehabilitate(Player player) {
 		
 		//Get the list of all crack addicts
-		List<String> list = plugin.getConfig().getStringList("Crack.Addicts");
+		List<String> list = plugin.getConfig().getStringList("ChristmasCookies.Addicts");
 		
 		//check to see if our player is an addict
 		if(list.contains(player.getName())) {
-			player.sendMessage(ChatColor.GOLD + "You are no longer addicted to crack!");
+			player.sendMessage(ChatColor.GOLD + "You are no longer addicted to Christmas Cookies!");
 			list.remove(player.getName());
-			plugin.getConfig().set("Crack.Addicts", list);
+			plugin.getConfig().set("ChristmasCookies.Addicts", list);
 			plugin.saveConfig();
 		}
 		
@@ -149,7 +147,7 @@ public class Crack implements Drugs {
 	public void withdrawl(Player player) {
 		
 		//Give the player the withdrawl effects of the crack
-		List<String> list = plugin.getConfig().getStringList("Crack.WithdrawlEffects");
+		List<String> list = plugin.getConfig().getStringList("ChristmasCookies.WithdrawlEffects");
 		
 		for(int i = 0; i < list.size(); i++) {
 			
@@ -159,35 +157,35 @@ public class Crack implements Drugs {
 			player.addPotionEffect(new PotionEffect(PotionEffectType.getByName(effects[0]),Integer.parseInt(effects[1]),Integer.parseInt(effects[2])));
 		}
 		
-		player.sendMessage("You are having withdrawl symptoms. You must smoke crack!");
+		player.sendMessage("You are having withdrawl symptoms. You must smoke Christmas Cookies!");
 		
 	}
 
 
 	@Override
 	public int maxTrades() {
-		int maxTrades = plugin.getConfig().getInt("Crack.MaxTrades");
+		int maxTrades = plugin.getConfig().getInt("ChristmasCookies.MaxTrades");
 		return maxTrades;
 	}
 
 
 	@Override
 	public int costOfDrugs() {
-		int costOfDrugs = plugin.getConfig().getInt("Crack.CostOfDrugs");
+		int costOfDrugs = plugin.getConfig().getInt("ChristmasCookies.CostOfDrugs");
 		return costOfDrugs;
 	}
 
 
 	@Override
 	public int costIncrease() {
-		int CostIncrease = plugin.getConfig().getInt("Crack.CostIncrease");
+		int CostIncrease = plugin.getConfig().getInt("ChristmasCookies.CostIncrease");
 		return CostIncrease;
 	}
 
 
 	@Override
 	public int costOfParaphernalia() {
-		int CostOfParaphernalia = plugin.getConfig().getInt("Crack.CostOfParaphernalia");
+		int CostOfParaphernalia = plugin.getConfig().getInt("ChristmasCookies.CostOfParaphernalia");
 		return CostOfParaphernalia;
 	}
 

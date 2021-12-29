@@ -11,8 +11,14 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Villager;
 import org.bukkit.entity.Villager.Profession;
+import org.bukkit.inventory.MerchantRecipe;
 import org.bukkit.entity.WanderingTrader;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
+import org.bukkit.potion.PotionType;
+
+import com.google.common.collect.Lists;
 
 import net.md_5.bungee.api.ChatColor;
 
@@ -21,8 +27,12 @@ public class commandProcessor implements CommandExecutor {
 	private Plugin plugin = Main.plugin;
 	
 	Crack crack = new Crack(plugin);
+	ChristmasCookies cookies = new ChristmasCookies(plugin);
+	Kilos kilos = new Kilos(plugin);
 	HolyTexts bible = new HolyTexts(plugin);
-	VillagerTrading tradingAPI = new VillagerTrading(plugin, crack, bible);
+	VillagerTrading crackTradingAPI = new VillagerTrading(plugin, crack, bible);
+	VillagerTrading cookieTradingAPI = new VillagerTrading(plugin, cookies, null);
+	VillagerTrading kiloTradingAPI = new VillagerTrading(plugin, kilos, null);
 	
 	  public boolean onCommand(CommandSender sender, Command cmd, String cmdLabel, String[] args) {
 		    if (cmdLabel.equalsIgnoreCase("drugs")) {
@@ -48,8 +58,16 @@ public class commandProcessor implements CommandExecutor {
 		    		 WanderingTrader drugDealer = (WanderingTrader) player.getWorld().spawnEntity(player.getLocation(), EntityType.WANDERING_TRADER);
 		    		 //traders spawned like this will not despawn
 		    		 drugDealer.setDespawnDelay(-1);
+		    		 drugDealer.setMaxHealth(100);
+		    		 drugDealer.setHealth(100);
+		    		 drugDealer.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE,Integer.MAX_VALUE,Integer.MAX_VALUE));
 		    		 plugin.getLogger().info("Adding drug dealer to world at location: " + player.getLocation());
-		    		 tradingAPI.addDruggstoVillager(drugDealer);
+		    		 List<MerchantRecipe> blankTrades = Lists.newArrayList();
+		    		 drugDealer.setRecipes(blankTrades);
+		    		 crackTradingAPI.addDruggstoVillager(drugDealer);
+		    		 cookieTradingAPI.addDruggstoVillager(drugDealer);
+		    		 kiloTradingAPI.addDruggstoVillager(drugDealer);
+		    		 
 		    	  } else {
 		    		  sender.sendMessage("You must be a player to spawn a drug dealer");
 		    	  }

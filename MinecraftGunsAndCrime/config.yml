@@ -1,4 +1,16 @@
 drugDealerName: 'Gang Member'
+#This part of the config may not be used
+GhettoCordsWorld: world
+GhettoCordsUpperX: 10
+GhettoCordsUpperY: 10
+GhettoCordsUpperZ: 10
+GhettoCordsLowerX: -10
+GhettoCordsLowerY: -10
+GhettoCordsLowerZ: -10
+GhettoDeathMessage: '&6[&5Ghetto newspaper&6] &2%player% &7was found dead. Police do not investigate deaths in the ghetto'
+GhettoMuggingMessage: '&6[&5Ghetto newspaper&6] &2%player% &7was mugged by a gang member. %item% was stolen. Police do not investigate thefts in the ghetto'
+#1 out of value
+drugDealerChanceOfMugging: 5
 Crack:
   DrugItem: 'BONE_MEAL'
   DrugDisplayName: '&fCRACK'
@@ -10,10 +22,39 @@ Crack:
     - 'Right click me to smoke crack'
 #These should be potion effects. Separate ints with comma, first int is time in ticks, second int is strength 
   DrugEffects:
-    - 'FAST_DIGGING,6000,0'
+    - 'FAST_DIGGING,6000,1'
     - 'CONFUSION,200,3'
+    - 'GLOWING,2000,2'
+    - 'SPEED,6000,1'
+#Should be a value between 0 and 1
+  AddictionChance: .5
+  WithdrawlEffects:
+    - 'SLOW_DIGGING,12000,1'
+    - 'SLOW,12000,1'
+    - 'HUNGER,6000,1'
+  Addicts:
+    - 'ForumsModerator'
+  #this section handles the villager trading
+  MaxTrades: 16
+  CostOfDrugs: 2
+  CostIncrease: 2
+  CostOfParaphernalia: 5
+ChristmasCookies:
+  DrugItem: 'COOKIE'
+  DrugDisplayName: '&eChristmas Cookies'
+  DrugLore:
+    - 'Santas cookies'
+    - 'Must be consumed with Santas milk'
+  ParaphernaliaItem: MILK_BUCKET
+  ParaphernaliaDisplayName: '&cSantas Milk'
+  ParaphernaliaLore:
+    - 'Right click me comsume cookies'
+#These should be potion effects. Separate ints with comma, first int is time in ticks, second int is strength 
+  DrugEffects:
+    - 'LEVITATION,100,1'
+    - 'CONFUSION,100,3'
     - 'GLOWING,200,2'
-    - 'INCREASE_DAMAGE,6000,0'
+    - 'REGENERATION,1000,2'
 #Should be a value between 0 and 1
   AddictionChance: .5
   WithdrawlEffects:
@@ -21,12 +62,35 @@ Crack:
     - 'SLOW,6000,0'
     - 'HUNGER,6000,0'
   Addicts:
-    - 'JavaSE'
+    - 'ForumsModerator'
   #this section handles the villager trading
   MaxTrades: 16
-  CostOfDrugs: 8
+  CostOfDrugs: 1
   CostIncrease: 2
-  CostOfParaphernalia: 24
+  CostOfParaphernalia: 4
+Kilos:
+  DrugItem: 'BONE_BLOCK'
+  DrugDisplayName: '&fKILO OF CRACK'
+  DrugLore:
+    - 'Crack is bad for you'
+    - 'A kilo of crack is very bad for you'
+  ParaphernaliaItem: STICK
+  ParaphernaliaDisplayName: '&cMEGA CRACK PIPE'
+  ParaphernaliaLore:
+    - 'Right click me to smoke an entire kilo of crack'
+#These should be potion effects. Separate ints with comma, first int is time in ticks, second int is strength 
+  DrugEffects:
+    - 'FAST_DIGGING,1200,3'
+    - 'CONFUSION,400,10'
+    - 'GLOWING,400,2'
+    - 'SPEED,1200,3'
+    - 'INCREASE_DAMAGE,1200,9'
+#you cannot get addicted to kilos
+  #this section handles the villager trading
+  MaxTrades: 16
+  CostOfDrugs: 18
+  CostIncrease: 2
+  CostOfParaphernalia: 8
 HolyTexts:
   ItemCost: 64
   ItemName: 'Holy bible'
@@ -35,7 +99,15 @@ HolyTexts:
     - 'This book may'
     - 'cure addiction'
   BookPages:
-    - 'And God said, LET THERE BE CRACK'
-    - 'And you smoked it'
-    - 'Now you are addicted to crack'
+    - 'The Holy Works of unknown authors'
+    - 'Hope in reality is the worst of all evils because it prolongs the torments of man. - Friedrich Nietzsche'
+    - 'Now to him who is able to do immeasurably more than all we ask or imagine, according to his power that is at work within us. - Ephesians 3:20'
+    - 'Without music, life would be a mistake. - Friedrich Nietzsche, Twilight of the Idols'
+    - 'That which does not kill us makes us stronger. - Friedrich Nietzsche'
+    - 'He who is cruel to animals becomes hard also in his dealings with men. We can judge the heart of a man by his treatment of animals. - Immanuel Kant'
+    - 'In law a man is guilty when he violates the rights of others. In ethics he is guilty if he only thinks of doing so. - Immanuel Kant'
+    - 'The history of the world is none other than the progress of the consciousness of freedom - Georg Wilhelm Friedrich Hegel'
+    - 'You talk out your mouth, you better invest in a vest - Pop Smoke, FOREIGNER'
+    - 'And I been hustlin all day this-a-way and that-a-way through canals and alleyways, just to say Money Trees is the perfect place for shade - Kendrick Lamar'
+    - 'Thank you for reading the bible. I hope you enjoyed - JavaSE'
   

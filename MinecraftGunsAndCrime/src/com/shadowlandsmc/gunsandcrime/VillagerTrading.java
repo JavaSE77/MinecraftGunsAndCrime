@@ -28,8 +28,7 @@ public class VillagerTrading {
 	public void addDruggstoVillager(AbstractVillager villager) {
 		villager.setCustomName(plugin.getConfig().getString("drugDealerName"));
 		//use this line if you want them to keep their trades
-		//List<MerchantRecipe> trades = Lists.newArrayList(villager.getRecipes());
-		List<MerchantRecipe> trades = Lists.newArrayList();
+		List<MerchantRecipe> trades = Lists.newArrayList(villager.getRecipes());
 		
 		//add the drug trade
 		MerchantRecipe drugRecipe = new MerchantRecipe(drugs.getDrugs(), 0, 0, false, 0, 0);
@@ -51,6 +50,8 @@ public class VillagerTrading {
 		paraphernaliaRecipe.setPriceMultiplier((float) drugs.costIncrease());
 		
 		
+		//check to make sure the bible is not null
+		if(bible != null) {
 		//add the bible trade
 		MerchantRecipe bibleRecipe = new MerchantRecipe(bible.getHolyText(), 0, 0, false, 0, 0);
 		List<ItemStack> bibleIngredients = new ArrayList<ItemStack>();
@@ -59,10 +60,12 @@ public class VillagerTrading {
 		bibleRecipe.setIngredients(bibleIngredients);
 		bibleRecipe.setMaxUses(drugs.maxTrades());
 		bibleRecipe.setPriceMultiplier((float) drugs.costIncrease());
+
+		trades.add(bibleRecipe);
+		}
 		
 		trades.add(drugRecipe);
 		trades.add(paraphernaliaRecipe);
-		trades.add(bibleRecipe);
 		villager.setRecipes(trades);
 	}
 	

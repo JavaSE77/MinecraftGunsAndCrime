@@ -39,6 +39,8 @@ public class Main extends JavaPlugin {
      */
     pluginManager.registerEvents(new PlayerDrugUse(), this);
     pluginManager.registerEvents(new PlayerRehabilitation(), this);
+    pluginManager.registerEvents(new GangMemberProtection(), this);
+    pluginManager.registerEvents(new GangMemberMugPlayer(), this);
 
     /*
      * This line lets you send out information to the console. In this case it would
