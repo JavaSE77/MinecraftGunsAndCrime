@@ -41,6 +41,7 @@ public class Main extends JavaPlugin {
     pluginManager.registerEvents(new PlayerRehabilitation(), this);
     pluginManager.registerEvents(new GangMemberProtection(), this);
     pluginManager.registerEvents(new GangMemberMugPlayer(), this);
+    pluginManager.registerEvents(new PlayerJoinListener(), this);
 
     /*
      * This line lets you send out information to the console. In this case it would

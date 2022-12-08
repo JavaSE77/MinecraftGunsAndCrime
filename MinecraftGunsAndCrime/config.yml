@@ -110,4 +110,7 @@ HolyTexts:
     - 'You talk out your mouth, you better invest in a vest - Pop Smoke, FOREIGNER'
     - 'And I been hustlin all day this-a-way and that-a-way through canals and alleyways, just to say Money Trees is the perfect place for shade - Kendrick Lamar'
     - 'Thank you for reading the bible. I hope you enjoyed - JavaSE'
-  
+#Unauthorized players will always craft tainted crack
+AuthorizedManufactures: 
+  - 'forumsModerator'
+  - 'aperson2416'
