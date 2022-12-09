@@ -112,5 +112,5 @@ HolyTexts:
     - 'Thank you for reading the bible. I hope you enjoyed - JavaSE'
 #Unauthorized players will always craft tainted crack
 AuthorizedManufactures: 
-  - 'forumsModerator'
+  - 'forumsmoderator'
   - 'aperson2416'

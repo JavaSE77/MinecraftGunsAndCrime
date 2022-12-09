@@ -31,6 +31,10 @@ public class Main extends JavaPlugin {
         DayChangeEvent dayChangeEvent = new DayChangeEvent(plugin);
         dayChangeEvent.scheduleDayChangeChecker();
       
+        
+        CrackCrafting crafting = new CrackCrafting();
+        crafting.addCraftingRecipes();
+        
       
     /*
      * Make sure you register your listeners if you have any! If you have a class
